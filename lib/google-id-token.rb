@@ -4,7 +4,7 @@
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#  
+#
 # http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
@@ -47,7 +47,7 @@ module GoogleIDToken
         @certs_mode = :old_skool
         @certs = {}
       end
-        
+
     end
 
     ##
@@ -89,7 +89,7 @@ module GoogleIDToken
         end
       end
     end
-    
+
     private
 
     # tries to validate the token against each cached cert.
@@ -103,6 +103,7 @@ module GoogleIDToken
         begin
           public_key = cert.public_key
           @token = JWT.decode(token, public_key, !!public_key)
+          @token = @token.first if @token.kind_of?(Array)
 
           # in Feb 2013, the 'cid' claim became the 'azp' claim per changes
           #  in the OIDC draft. At some future point we can go all-azp, but
@@ -116,7 +117,7 @@ module GoogleIDToken
           nil # go on, try the next cert
         end
       end
-      
+
       if @token
         if !(@token.has_key?('aud') && (@token['aud'] == aud))
           @problem = 'Token audience mismatch'
