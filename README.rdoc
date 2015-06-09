@@ -6,6 +6,8 @@ Creating a new validator takes a single optional hash argument. If the hash has 
 
 === Installation
 
+<b>This is a fork from: https://code.google.com/p/google-id-token/</b>
+
   gem 'google-id-token', git: 'git@github.com:Nerian/google-id-token.git'
 
 === Examples
