@@ -30,7 +30,7 @@ Creating a new validator takes a single optional hash argument. If the hash has 
     report "Cannot validate: #{validator.problem}"
   end
 
-=== LICENCE
+=== LICENSE
 
 Copyright 2015 Tim Bray, Bob Aman
 
