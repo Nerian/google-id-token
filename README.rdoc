@@ -4,6 +4,12 @@ GoogleIDToken currently provides a single useful class "Validator", which provid
 
 Creating a new validator takes a single optional hash argument. If the hash has an entry for :x509_key, that value is taken to be a key as created by OpenSSL::X509::Certificate.new, and the token is validated using that key.  If there is no such entry, the keys are fetched from the Google certs endpoint https://www.googleapis.com/oauth2/v1/certs.
 
+=== NOTE
+
+Google is now maintaining this gem so it is better if you use their version:
+
+https://github.com/google/google-id-token
+
 === Installation
 
 <b>This is a fork from: https://code.google.com/p/google-id-token/</b>
